@@ -373,7 +373,7 @@ FROM EMPLOYEE e
 WHERE SALARY BETWEEN 4000000 AND 6000000;
 
 ------------------------
-/*컬럼명 BETWEEN (A) AND (B)*/
+/*컬럼명 NOT BETWEEN (A) AND (B)*/
 -- 컬럼 값이 "A 이상", "B이하"가 아닌 경우 TRUE(조회 하겠다)
   -- == A 미만, B 초과
 ------------------------
@@ -382,7 +382,7 @@ SELECT EMP_NAME, SALARY
 FROM EMPLOYEE e 
 WHERE SALARY NOT BETWEEN 4000000 AND 6000000; -- 17행
 
-/*날짜도 범위 비료 가능 !!*/
+/*날짜도 범위 비교 가능 !!*/
 -- EMPLOYEE 테이블에서
 -- 2010년대(10.1.1 ~ 19.12.31) 입사한 사원의
 -- 사번, 이름, 입사일 조회
@@ -501,7 +501,7 @@ WHERE PHONE LIKE '010________';
 
 
 -- EMPLOYEE 테이블에서
--- EMAIL의 아이디의 글자수가 5글장니 사원의
+-- EMAIL의 아이디의 글자수가 5글자인 사원의
 -- 사번, 이름, 이메일 조회
 SELECT DEPT_CODE, EMP_NAME, EMAIL
 FROM EMPLOYEE
@@ -632,12 +632,12 @@ ORDER BY DEPT_CODE ASC;
 
 /*NULLS FIRST / NULLS LAST(기본값) 확인*/
 
-/*오름차순 - NULLS LAST 기본값*/
+/*오름차순 - NULLS FIRST 기본값*/
 SELECT EMP_ID, EMP_NAME, DEPT_CODE
 FROM EMPLOYEE
 ORDER BY DEPT_CODE ASC NULLS FIRST;
 
-/*내림차순 - NULLS FIRST 기본값*/
+/*내림차순 - NULLS LAST 기본값*/
 SELECT EMP_ID, EMP_NAME, DEPT_CODE
 FROM EMPLOYEE
 ORDER BY DEPT_CODE DESC NULLS LAST;
