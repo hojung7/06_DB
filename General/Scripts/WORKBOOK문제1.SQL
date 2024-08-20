@@ -1,7 +1,7 @@
 -- 1번
 -- 춘 기술대학교의 학과 이름과 계열을 조회하시오.
 -- 단, 출력 헤더(컬럼명)는 "학과 명", "계열"으로 표시하도록 한다.
-SELECT DEPARTMENT_NAME  학과명, 
+SELECT DEPARTMENT_NAME 학과명, 
 			CATEGORY  계열 
 FROM TB_DEPARTMENT;
 
@@ -64,7 +64,7 @@ SELECT STUDENT_NO, STUDENT_NAME, STUDENT_SSN
 FROM TB_STUDENT
 WHERE STUDENT_NO LIKE 'A2%' AND ABSENCE_YN = 'N'AND STUDENT_ADDRESS LIKE '전주%';
 
-
+------------------------------------------------
 
 -- 1번
 -- 영어영문학과(학과코드 002) 학생들의 학번과 이름, 입학 년도를
@@ -110,6 +110,7 @@ WHERE EXTRACT(YEAR FROM ENTRANCE_DATE)
 -- 6번
 -- 춘 기술대학교의 2000년도 이후 입학자들은 학번이 A로 시작하게 되어있다. 
 -- 2000년도 이전 학번을 받은 학생들의 학번과 이름 조회하는 SQL을 작성하시오.
+
 SELECT STUDENT_NO, STUDENT_NAME
 FROM TB_STUDENT
 WHERE STUDENT_NO NOT LIKE 'A%';
@@ -119,17 +120,15 @@ WHERE STUDENT_NO NOT LIKE 'A%';
 -- 단, 이때 출력 화면의 헤더는 "평점"이라고 찍히게 하고, 
 -- 점수는 반올림하여 소수점 이하 한자리까지만 표시한다.
 
-
-
 SELECT ROUND(AVG(POINT),1) AS 평점
 FROM TB_GRADE
 WHERE STUDENT_NO = 'A517178';
 
 
 
-
 -- 8번
 -- 학과별 학생 수를 구하여 "학과번호", "학생수(명)"의 형태로 조회하시오.
+
 SELECT DEPARTMENT_NO 학과번호, COUNT(*) "학생수(명)"
 FROM TB_STUDENT
 GROUP BY DEPARTMENT_NO
@@ -171,7 +170,7 @@ ORDER BY DEPARTMENT_NO;
 SELECT STUDENT_NAME AS 동일이름, COUNT(*) AS "동명인 수"
 FROM TB_STUDENT
 GROUP BY STUDENT_NAME
-HAVING COUNT(*) > 1
+HAVING COUNT(STUDENT_NAME)>1
 ORDER BY 1;
 
 -- 13번
@@ -183,3 +182,82 @@ FROM TB_GRADE
 WHERE STUDENT_NO = 'A112113'
 GROUP BY ROLLUP(SUBSTR(TERM_NO,1,4),SUBSTR(TERM_NO,5,2))
 ORDER BY SUBSTR(TERM_NO,1,4);
+
+SELECT *
+FROM TB_GRADE;
+
+------------------------------------------
+-- 1번
+-- 학생이름과 주소지를 조회하시오
+-- 단, 출력 헤더는 "학생 이름", "주소지"로 하고, 정렬은 이름으로 오름차순 정렬
+
+SELECT STUDENT_NAME, STUDENT_ADDRESS
+FROM TB_STUDENT
+ORDER BY STUDENT_NAME;
+
+-- 2번
+-- 휴학중인 학생들의 이름과 주민번호를 나이가 적은 순서 조회하시오.
+
+SELECT STUDENT_NAME, STUDENT_SSN
+FROM TB_STUDENT
+WHERE ABSENCE_YN = 'Y'
+ORDER BY STUDENT_SSN DESC;
+
+-- 3번
+-- 주소지가 강원도나 경기도인 학생들 중 1900년대 학번을 가진 학생들의
+-- 이름과 학번, 주소를 이름 오름차순으로 조회하시오.
+-- 단, 출력헤더에는 "학생이름", "학번", "거주지 주소"가 출력되도록 한다.
+
+SELECT STUDENT_NAME, STUDENT_NO, STUDENT_ADDRESS
+FROM TB_STUDENT
+WHERE (STUDENT_ADDRESS LIKE '경기도%' 
+OR STUDENT_ADDRESS LIKE '강원도%')
+AND SUBSTR(STUDENT_NO,1,2) = '99'
+ORDER BY STUDENT_NAME;
+
+
+
+
+
+--4번
+-- 현재 법학과 교수의 이름, 주민등록 번호를 나이가 많은 순서부터 조회하시오.
+SELECT PROFESSOR_NAME, PROFESSOR_SSN
+FROM TB_PROFESSOR 
+JOIN TB_DEPARTMENT USING (DEPARTMENT_NO)
+WHERE DEPARTMENT_NAME = '법학과'
+ORDER BY PROFESSOR_SSN;
+
+
+
+-- 5번
+-- 2004년 2학기에 'C3118100' 과목을 수강한 학생들의 학점을 조회하려고 한다.
+-- 학점이 높은 학생부터 표시하고, 학점이 같으면 학번이 낮은 학생부터 조회하시오.
+-- (참고) 소수점 아래 2자리까지 0으로 표현 : TO_CHAR(NUMBER, 'FM9.00')
+-- (FM : 조회 결과 양쪽 공백 제거)
+SELECT STUDENT_NO, TO_CHAR(POINT, 'FM9.00')
+FROM TB_GRADE
+WHERE TERM_NO = '200402' AND CLASS_NO = 'C3118100'
+ORDER BY POINT DESC ,STUDENT_NO;
+
+
+
+
+-- 6번
+-- 학생 번호, 학생 이름, 학과 이름을 학생 이름 오름차순으로 조회하시오.
+
+SELECT STUDENT_NO,STUDENT_NAME, DEPARTMENT_NAME
+FROM TB_STUDENT
+JOIN TB_DEPARTMENT USING(DEPARTMENT_NO)
+ORDER BY STUDENT_NAME;
+
+
+-- 7번
+-- 춘 기술대학교의 과목 이름, 해당 과목을 수업하는 학과 이름을 조회하시오.
+
+FROM TB_CLASS DEPARTMENT_NAME
+JOIN TB_STUDENT USING(DEPARTMENT_NO)
+JOIN TB_DEPARTMENT USING(DEPARMENT_NO);
+
+
+
+
