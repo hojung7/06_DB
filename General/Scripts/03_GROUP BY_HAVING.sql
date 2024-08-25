@@ -243,7 +243,7 @@ ORDER BY 1;
 -- * 그룹으로 지정된 모든 그룹에 대한 집계와 총 합계를 구하는 함수
 
 -- EMPLOYEE 테이블에서 각 부서 마다 직급별 급여합,
--- 부서 전체 급여 합,
+-- 부서 전체 급여 합
 
 SELECT DEPT_CODE, JOB_CODE, SUM(SALARY)
 FROM EMPLOYEE
