@@ -63,6 +63,7 @@ MODIFY DEPT_TITLE NULL; -- NULL 허용
 
 
 
+
 ---------------------------
 
 -- DEPT_COPY에 추가한 제약조건 중 PK 빼고 모두 삭제
