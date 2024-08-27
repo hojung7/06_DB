@@ -172,6 +172,7 @@ HAVING SUM(SALARY) =
 	FROM EMPLOYEE
 	GROUP BY DEPT_CODE); -- 서브쿼리 결과 21760000
                       
+
 	
 	
 -- 부서별 인원 수가 3명 이상인 부서의 
@@ -183,6 +184,14 @@ LEFT JOIN DEPARTMENT
 GROUP BY DEPT_TITLE 
 HAVING COUNT(*) >= 3;
 
+-- 부서별 인원 수가 5명 이상인 부서의 
+-- 부서명, 인원 수 조회
+SELECT DEPT_TITLE, COUNT(*)
+FROM EMPLOYEE
+LEFT JOIN DEPARTMENT 
+	ON (DEPT_CODE = DEPT_ID)
+GROUP BY DEPT_TITLE 
+HAVING COUNT(*) >= 5;
 
 -- 부서별 인원 수가 가장 적은 부서의 
 -- 부서명, 인원 수 조회

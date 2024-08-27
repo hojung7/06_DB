@@ -33,6 +33,7 @@
 -- 부서코드, 부서 별 급여의 합계, 부서 별 급여의 평균(정수처리), 
 -- 인원 수를 조회하고 
 -- 부서 코드 순으로 정렬
+
 SELECT 
 	DEPT_CODE, 
 	SUM(SALARY), 
@@ -55,6 +56,7 @@ GROUP BY DEPT_CODE					-- 3.WHERE 결과에서 그룹 구분
 ORDER BY DEPT_CODE ASC;			-- 5.조회 결과 정렬
 
 
+SELECT 
 -- EMPLOYEE 테이블에서
 -- 성별과 성별 별 급여 평균(정수처리), 급여 합계, 인원 수 조회하고
 -- 인원 수로 내림차순 정렬
@@ -136,7 +138,6 @@ GROUP BY DEPT_CODE
 ORDER BY DEPT_CODE ASC;
 --> 개인 급여가 350만 이상인 사람들의 부서별 평균 (잘못된 SQL)
 
-
 SELECT DEPT_CODE, AVG(SALARY)
 FROM EMPLOYEE
 GROUP BY DEPT_CODE
@@ -144,6 +145,19 @@ HAVING AVG(SALARY) >= 3500000
 ORDER BY DEPT_CODE ASC;
 --> EMPLOYEE 테이블에서 DEPT_CODE 기준으로 만들어진 그룹 중
 --  그룹별 급여 평균이 350만 이상인 그룹만 조회 (맞는 SQL)
+
+-- 부서별 평균 급여 2000000원 이상인 부서를 조회하여 
+-- 부서코드 오름차순으로 정렬
+SELECT DEPT_CODE, AVG(SALARY)
+FROM EMPLOYEE
+GROUP BY DEPT_CODE
+HAVING AVG(SALARY) >= 2000000
+ORDER BY DEPT_CODE ASC;
+
+
+
+
+
 
 
 -- 부서별 그룹의 급여 합계 중 
@@ -229,7 +243,7 @@ ORDER BY 1;
 -- * 그룹으로 지정된 모든 그룹에 대한 집계와 총 합계를 구하는 함수
 
 -- EMPLOYEE 테이블에서 각 부서 마다 직급별 급여합,
--- 부서 전체 급여 합,
+-- 부서 전체 급여 합
 
 SELECT DEPT_CODE, JOB_CODE, SUM(SALARY)
 FROM EMPLOYEE

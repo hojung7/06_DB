@@ -265,7 +265,7 @@ VALUES(1, NULL, 'pass01', '나길동', '남', '010-1234-5678', 'hong123@kh.or.kr
 
 INSERT INTO USER_USED_UK
 VALUES(1, NULL, 'pass01', '나길동', '남', '010-1234-5678', 'hong123@kh.or.kr');
--- ORA-00001: 무결성 제약 조건(KH_BDH.USER_NAME_U)에 위배됩니다
+-- ORA-00001: 무결성 제약 조건(KH_JHJ.USER_NAME_U)에 위배됩니다
 
 SELECT  * FROM USER_USED_UK; -- 3행 삽입 확인
 
