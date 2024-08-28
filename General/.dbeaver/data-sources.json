@@ -116,9 +116,55 @@
 				},
 				"auth-model": "oracle_native"
 			}
+		},
+		"oracle_thin-191965a39d2-7a68c062f803a884": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "로컬 KH_JHJ (KH1234)",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "1521",
+				"database": "XE",
+				"url": "jdbc:oracle:thin:@//localhost:1521/XE",
+				"configurationType": "MANUAL",
+				"home": "C:\\app\\user1\\product\\18.0.0\\dbhomeXE",
+				"type": "dev",
+				"keepAlive": 120,
+				"closeIdleConnection": true,
+				"properties": {
+					"useFetchSizeWithLongColumn": "true",
+					"loginTimeout": "20",
+					"oracle.jdbc.jsonDefaultGetObjectType": "java.lang.String",
+					"oracle.jdbc.fanEnabled": "false"
+				},
+				"provider-properties": {
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE",
+					"show-only-one-schema@": "false",
+					"@dbeaver-check-schema-content@": "false",
+					"@dbeaver-always-show-dba@": "false",
+					"@dbeaver-always-use-dba-views@": "false",
+					"@dbeaver-meta-use-sys-schema@": "false",
+					"@dbeaver-meta-use-simple-constraints@": "false",
+					"@dbeaver-use-rule-hint@": "false",
+					"@dbeaver-use-meta-optimizer@": "true",
+					"@dbeaver-meta-use-alternative-table-query@": "false",
+					"oracle.meta-search-in-synonyms": "false",
+					"oracle.show-date-as-date": "false"
+				},
+				"auth-model": "oracle_native"
+			},
+			"filters": [
+				{
+					"type": "org.jkiss.dbeaver.ext.oracle.model.OracleSchema",
+					"enabled": true,
+					"include": ["KH_JHJ"]
+				}
+			]
 		}
 	},
-	"virtual-models": {"oracle_thin-1914e8780e3-61cd7ee34f5abb3e":{"KH_JHJ":{":EMPLOYEE":{"properties":{"erd.diagram.state":{"serialized":"\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202408221750\"\u003e\u003centities\u003e\u003cdata-source id\u003d\"oracle_thin-1914e8780e3-61cd7ee34f5abb3e\"\u003e\u003centity id\u003d\"1\" name\u003d\"EMPLOYEE\" fq-name\u003d\"KH_JHJ.EMPLOYEE\" order\u003d\"0\" color-bg\u003d\"124,62,31\" font\u003d\"D2Coding:9:0\" x\u003d\"76\" y\u003d\"116\"\u003e\u003cpath name\u003d\"KH_JHJ\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"2\" name\u003d\"DEPARTMENT\" fq-name\u003d\"KH_JHJ.DEPARTMENT\" order\u003d\"1\" font\u003d\"D2Coding:9:0\" x\u003d\"313\" y\u003d\"82\"\u003e\u003cpath name\u003d\"KH_JHJ\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"3\" name\u003d\"JOB\" fq-name\u003d\"KH_JHJ.JOB\" order\u003d\"2\" font\u003d\"D2Coding:9:0\" x\u003d\"364\" y\u003d\"247\"\u003e\u003cpath name\u003d\"KH_JHJ\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"4\" name\u003d\"SAL_GRADE\" fq-name\u003d\"KH_JHJ.SAL_GRADE\" order\u003d\"3\" font\u003d\"D2Coding:9:0\" x\u003d\"306\" y\u003d\"397\"\u003e\u003cpath name\u003d\"KH_JHJ\"/\u003e\u003c/entity\u003e\u003c/data-source\u003e\u003c/entities\u003e\u003crelations\u003e\u003crelation name\u003d\"DEPT_CODE_FK\" fq-name\u003d\"KH_JHJ.EMPLOYEE.DEPT_CODE_FK\" type\u003d\"fk\" pk-ref\u003d\"2\" fk-ref\u003d\"1\"/\u003e\u003crelation name\u003d\"JOB_CODE_FK\" fq-name\u003d\"KH_JHJ.EMPLOYEE.JOB_CODE_FK\" type\u003d\"fk\" pk-ref\u003d\"3\" fk-ref\u003d\"1\"/\u003e\u003crelation name\u003d\"SAL_LEVEL_FK\" fq-name\u003d\"KH_JHJ.EMPLOYEE.SAL_LEVEL_FK\" type\u003d\"fk\" pk-ref\u003d\"4\" fk-ref\u003d\"1\"/\u003e\u003c/relations\u003e\u003c/diagram\u003e"}}},":DEPT_COPY":{"properties":{"erd.diagram.state":{"serialized":"\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202408231141\"\u003e\u003centities\u003e\u003cdata-source id\u003d\"oracle_thin-1914e8780e3-61cd7ee34f5abb3e\"\u003e\u003centity id\u003d\"1\" name\u003d\"DEPT_COPY\" fq-name\u003d\"KH_JHJ.DEPT_COPY\" order\u003d\"0\" color-bg\u003d\"124,62,31\" border-width\u003d\"3\" font\u003d\"D2Coding:9:0\" x\u003d\"149\" y\u003d\"128\"\u003e\u003cpath name\u003d\"KH_JHJ\"/\u003e\u003c/entity\u003e\u003c/data-source\u003e\u003c/entities\u003e\u003crelations/\u003e\u003c/diagram\u003e"}}}}}},
+	"virtual-models": {"oracle_thin-1914e8780e3-61cd7ee34f5abb3e":{"KH_JHJ":{":EMPLOYEE":{"properties":{"erd.diagram.state":{"serialized":"\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202408221750\"\u003e\u003centities\u003e\u003cdata-source id\u003d\"oracle_thin-1914e8780e3-61cd7ee34f5abb3e\"\u003e\u003centity id\u003d\"1\" name\u003d\"EMPLOYEE\" fq-name\u003d\"KH_JHJ.EMPLOYEE\" order\u003d\"0\" color-bg\u003d\"124,62,31\" font\u003d\"D2Coding:9:0\" x\u003d\"76\" y\u003d\"116\"\u003e\u003cpath name\u003d\"KH_JHJ\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"2\" name\u003d\"DEPARTMENT\" fq-name\u003d\"KH_JHJ.DEPARTMENT\" order\u003d\"1\" font\u003d\"D2Coding:9:0\" x\u003d\"313\" y\u003d\"82\"\u003e\u003cpath name\u003d\"KH_JHJ\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"3\" name\u003d\"JOB\" fq-name\u003d\"KH_JHJ.JOB\" order\u003d\"2\" font\u003d\"D2Coding:9:0\" x\u003d\"364\" y\u003d\"247\"\u003e\u003cpath name\u003d\"KH_JHJ\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"4\" name\u003d\"SAL_GRADE\" fq-name\u003d\"KH_JHJ.SAL_GRADE\" order\u003d\"3\" font\u003d\"D2Coding:9:0\" x\u003d\"306\" y\u003d\"397\"\u003e\u003cpath name\u003d\"KH_JHJ\"/\u003e\u003c/entity\u003e\u003c/data-source\u003e\u003c/entities\u003e\u003crelations\u003e\u003crelation name\u003d\"DEPT_CODE_FK\" fq-name\u003d\"KH_JHJ.EMPLOYEE.DEPT_CODE_FK\" type\u003d\"fk\" pk-ref\u003d\"2\" fk-ref\u003d\"1\"/\u003e\u003crelation name\u003d\"JOB_CODE_FK\" fq-name\u003d\"KH_JHJ.EMPLOYEE.JOB_CODE_FK\" type\u003d\"fk\" pk-ref\u003d\"3\" fk-ref\u003d\"1\"/\u003e\u003crelation name\u003d\"SAL_LEVEL_FK\" fq-name\u003d\"KH_JHJ.EMPLOYEE.SAL_LEVEL_FK\" type\u003d\"fk\" pk-ref\u003d\"4\" fk-ref\u003d\"1\"/\u003e\u003c/relations\u003e\u003c/diagram\u003e"}}},":DEPT_COPY":{"properties":{"erd.diagram.state":{"serialized":"\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202408231141\"\u003e\u003centities\u003e\u003cdata-source id\u003d\"oracle_thin-1914e8780e3-61cd7ee34f5abb3e\"\u003e\u003centity id\u003d\"1\" name\u003d\"DEPT_COPY\" fq-name\u003d\"KH_JHJ.DEPT_COPY\" order\u003d\"0\" color-bg\u003d\"124,62,31\" border-width\u003d\"3\" font\u003d\"D2Coding:9:0\" x\u003d\"149\" y\u003d\"128\"\u003e\u003cpath name\u003d\"KH_JHJ\"/\u003e\u003c/entity\u003e\u003c/data-source\u003e\u003c/entities\u003e\u003crelations/\u003e\u003c/diagram\u003e"}}}}},"oracle_thin-191965a39d2-7a68c062f803a884":{"KH_JHJ":{":EMPLOYEE":{"properties":{"erd.diagram.state":{"serialized":"\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202408221750\"\u003e\u003centities\u003e\u003cdata-source id\u003d\"oracle_thin-1914e8780e3-61cd7ee34f5abb3e\"\u003e\u003centity id\u003d\"1\" name\u003d\"EMPLOYEE\" fq-name\u003d\"KH_JHJ.EMPLOYEE\" order\u003d\"0\" color-bg\u003d\"124,62,31\" font\u003d\"D2Coding:9:0\" x\u003d\"76\" y\u003d\"116\"\u003e\u003cpath name\u003d\"KH_JHJ\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"2\" name\u003d\"DEPARTMENT\" fq-name\u003d\"KH_JHJ.DEPARTMENT\" order\u003d\"1\" font\u003d\"D2Coding:9:0\" x\u003d\"313\" y\u003d\"82\"\u003e\u003cpath name\u003d\"KH_JHJ\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"3\" name\u003d\"JOB\" fq-name\u003d\"KH_JHJ.JOB\" order\u003d\"2\" font\u003d\"D2Coding:9:0\" x\u003d\"364\" y\u003d\"247\"\u003e\u003cpath name\u003d\"KH_JHJ\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"4\" name\u003d\"SAL_GRADE\" fq-name\u003d\"KH_JHJ.SAL_GRADE\" order\u003d\"3\" font\u003d\"D2Coding:9:0\" x\u003d\"306\" y\u003d\"397\"\u003e\u003cpath name\u003d\"KH_JHJ\"/\u003e\u003c/entity\u003e\u003c/data-source\u003e\u003c/entities\u003e\u003crelations\u003e\u003crelation name\u003d\"DEPT_CODE_FK\" fq-name\u003d\"KH_JHJ.EMPLOYEE.DEPT_CODE_FK\" type\u003d\"fk\" pk-ref\u003d\"2\" fk-ref\u003d\"1\"/\u003e\u003crelation name\u003d\"JOB_CODE_FK\" fq-name\u003d\"KH_JHJ.EMPLOYEE.JOB_CODE_FK\" type\u003d\"fk\" pk-ref\u003d\"3\" fk-ref\u003d\"1\"/\u003e\u003crelation name\u003d\"SAL_LEVEL_FK\" fq-name\u003d\"KH_JHJ.EMPLOYEE.SAL_LEVEL_FK\" type\u003d\"fk\" pk-ref\u003d\"4\" fk-ref\u003d\"1\"/\u003e\u003c/relations\u003e\u003c/diagram\u003e"}}},":DEPT_COPY":{"properties":{"erd.diagram.state":{"serialized":"\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202408231141\"\u003e\u003centities\u003e\u003cdata-source id\u003d\"oracle_thin-1914e8780e3-61cd7ee34f5abb3e\"\u003e\u003centity id\u003d\"1\" name\u003d\"DEPT_COPY\" fq-name\u003d\"KH_JHJ.DEPT_COPY\" order\u003d\"0\" color-bg\u003d\"124,62,31\" border-width\u003d\"3\" font\u003d\"D2Coding:9:0\" x\u003d\"149\" y\u003d\"128\"\u003e\u003cpath name\u003d\"KH_JHJ\"/\u003e\u003c/entity\u003e\u003c/data-source\u003e\u003c/entities\u003e\u003crelations/\u003e\u003c/diagram\u003e"}}}}}},
 	"connection-types": {
 		"dev": {
 			"name": "Development",
