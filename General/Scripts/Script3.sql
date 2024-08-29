@@ -34,6 +34,7 @@ SELECT * FROM TB_USER;
 
 SELECT * FROM TB_USER WHERE USER_ID = 'user01';
 
+-- 모든 사용자 검색
 SELECT
 	USER_NO,
 	USER_ID,
@@ -41,4 +42,48 @@ SELECT
 	USER_NAME,
 	TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일"') ENROLL_DATE
 FROM TB_USER
-ORDER BY USER_NO ASC;
+ORDER BY USER_NO ASC
+;
+
+-- 검색어가 이름에 포함된 User 검색
+
+SELECT
+	USER_NO,
+	USER_ID,
+	USER_PW,
+	USER_NAME,
+	TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일"') ENROLL_DATE
+FROM TB_USER
+WHERE USER_NAME LIKE '%'|| '이' ||'%'
+ORDER BY USER_NO ASC
+;
+
+-- USER_NO를 입력 받아 일치하는 User 삭제(DELETE)
+DELETE
+FROM TB_USER
+WHERE USER_NO = ?;
+-- 일치하는 USER_NO가 있을 경우 : 1행 삭제
+-- 일치하는 USER_NO가 없을 경우 : 0행 삭제
+
+
+-- ID, PW가 일치하는 회원의 USER_NO(PK) 조회
+SELECT USER_NO
+FROM TB_USER
+WHERE USER_ID = 'user01'
+AND USER_PW = 'pass02';
+
+-- USER_NO(PK)가 일치하는 회원의 이름을 수정
+UPDATE TB_USER
+SET USER_NAME = '이순신 장군'
+WHERE USER_NO = 5; 
+
+
+-- 중복되는 아이디가 있는지 조회
+-- 중복이면 1, 아니면 0
+
+SELECT COUNT(*)
+FROM TB_USER
+WHERE USER_ID = 'user01';
+
+
+	
