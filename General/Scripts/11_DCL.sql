@@ -36,6 +36,8 @@ DROP ANY TABLE   : 임의 테이블 삭제 권한
 2) 객체 권한 : 특정 객체를 조작할 수 있는 권한
 
   권한 종류                 설정 객체
+  
+  
     SELECT              TABLE, VIEW, SEQUENCE
     INSERT              TABLE, VIEW
     UPDATE              TABLE, VIEW
