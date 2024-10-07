@@ -482,6 +482,11 @@ SELECT
 		ELSE TO_CHAR(BOARD_WRITE_DATE, 'YYYY-MM-DD')
 					
 	END AS "BOARD_WRITE_DATE"
+	,
+	(SELECT IMG_PATH || IMG_RENAME
+	FROM BOARD_IMG I
+	WHERE IMG_ORDER = 0
+	AND I.BOARD_NO = B.BOARD_NO) AS THUMBNAIL
 FROM
 	"BOARD" B
 JOIN
@@ -590,5 +595,41 @@ ORDER BY BOARD_NO DESC;
 SELECT * FROM "BOARD_IMG";
 
 COMMIT;
+
+
+--------------------------------------------
+/*게시글 상세 조회*/
+
+-------------------------------------------
+/* 댓글 샘플 데이터 추가 */
+INSERT INTO "COMMENT"
+VALUES(
+	SEQ_COMMENT_NO.NEXTVAL, '부모 댓글 1',
+	DEFAULT,  DEFAULT,
+	1,  -- 회원 번호
+	2031, -- 게시글 번호 
+	NULL 
+);
+
+
+INSERT INTO "COMMENT"
+VALUES( SEQ_COMMENT_NO.NEXTVAL, '부모 댓글 2',
+	    DEFAULT,  DEFAULT, 1,  2015, NULL 
+);
+
+INSERT INTO "COMMENT"
+VALUES( SEQ_COMMENT_NO.NEXTVAL, '부모 댓글 3',
+	    DEFAULT,  DEFAULT, 1,  2015, NULL 
+);
+
+
+
+
+/* 특정 게시글의 댓글 목록 조회 + 계층형 쿼리 */
+
+SELECT COMMENT_NO, PARENT_COMMENT_NO, COMMENT_CONTENT
+FROM "COMMENT"
+WHERE BOARD_NO = 2031;
+
 
 
