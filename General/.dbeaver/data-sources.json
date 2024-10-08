@@ -166,7 +166,7 @@
 		"oracle_thin-191de7a53b8-b380abc460caf1b": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "SPRING_JHJ(SPRING1234)",
+			"name": "SPRING_JHJ(SPRING1234)_학원",
 			"save-password": true,
 			"configuration": {
 				"host": "khj-1.xyz",
